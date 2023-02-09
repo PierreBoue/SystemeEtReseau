@@ -1,21 +1,22 @@
-Updating the Debian Linux, run:
-sudo -- sh -c 'apt update && apt upgrade'
-Install Apache, execute:
-sudo apt install apache2
-Update the Firewall and open port 80 and 443, run:
-sudo ufw allow in "WWW Full"
-Set up MariaDB:
-sudo apt install mariadb-server
-Secure your MariaDB server, type:
-sudo mysql_secure_installation
-PHP 7.3 installation:
-sudo apt install php libapache2-mod-php php-gd php-mysql
-Test your LAMP setup
-Let us see all steps in details. But, first log in to your remote server using the ssh command:
-ssh user@server-ip
-ssh -i ~/.ssh/aws-ec2-key admin@deb10-lmum1-box1
+### Updating the Debian Linux, run:    
 
-créer un nouvel utiloisateur mysql
+sudo -- sh -c 'apt update && apt upgrade'   
+Install Apache, execute:   
+sudo apt install apache2   
+Update the Firewall and open port 80 and 443, run:   
+sudo ufw allow in "WWW Full"  
+Set up MariaDB:   
+sudo apt install mariadb-server   
+Secure your MariaDB server, type:   
+sudo mysql_secure_installation    
+PHP 7.3 installation:   
+sudo apt install php libapache2-mod-php php-gd php-mysql    
+Test your LAMP setup  
+Let us see all steps in details. But, first log in to your remote server using the ssh command:
+ssh user@server-ip  
+ssh -i ~/.ssh/aws-ec2-key admin@deb10-lmum1-box1   
+
+### créer un nouvel utilisateur mysql   
 
 mysql -u root -p -h localhost
 I created a new user with
@@ -30,3 +31,12 @@ GRANT ALL PRIVILEGES ON shop.* TO 'francesco'@'localhost';
 
 
 sudo nano /var/www/html/dbtest.php
+
+erreurs http :  
+- 200 : succès de la requête ;  
+- 301 et 302 : redirection, respectivement permanente et temporaire ;  
+- 401 : utilisateur non authentifié ;
+- 403 : accès refusé ;
+- 404 : ressource non trouvée ;
+- 500, 502 et 503 : erreurs serveur ;
+- 504 : le serveur n'a pas répondu.
